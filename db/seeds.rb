@@ -4,6 +4,7 @@ require 'byebug'
 
 Team.destroy_all
 User.destroy_all
+Player.destroy_all
 
 
 
@@ -16,6 +17,10 @@ teams_array = response["teams"]
 players_response = RestClient.get("http://api.football-data.org/v2/teams/66",{"X-Auth-Token" => "#{goal_key}"})
 p_res = JSON.parse(players_response)
 player_array = p_res["squad"]
+# byebug
+
+# league_response = RestClient.get("http://api.football-data.org/v2/competitions/2021/standings",{"X-Auth-Token" => "#{goal_key}"})
+# league = JSON.parse(league_response)
 # byebug
 
 teams_array.each do |team|
