@@ -18,5 +18,10 @@ def favorite
   render json: favorite_team.team
 end
 
+def destroy
+  favorite_team = FavoriteTeam.find_or_create_by(user_id: params[:user_id], team_id: params[:team_id])
+  FavoriteTeam.destroy(favorite_team.id)
+end
+
 
 end
