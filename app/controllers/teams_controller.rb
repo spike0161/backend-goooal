@@ -8,7 +8,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    # makefetch call for league data
     team = Team.find(params[:id])
     render json: team.to_json()
   end

@@ -12,9 +12,9 @@ goal_response = RestClient.get("http://api.football-data.org/v2/competitions/202
 response = JSON.parse(goal_response)
 teams_array = response["teams"]
 
-slicedArr = teams_array.slice(20,2)
+# slicedArr = teams_array.slice(20,2)
 # method is sleep to wait for x amount of seconds
-slicedArr.each do |team|
+teams_array.each do |team|
 # byebug
 puts "fetching team #{team['id']}"
 full_name = team['name']
@@ -35,7 +35,7 @@ puts "team created #{team['full_name']}"
 players_response = RestClient.get("http://api.football-data.org/v2/teams/#{team['id']}",{"X-Auth-Token" => "#{goal_key}"})
 p_res = JSON.parse(players_response)
 player_array = p_res["squad"]
-
+byebug
 player_array.each do |player|
 name = player["name"]
 position = player["position"]
