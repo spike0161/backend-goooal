@@ -12,7 +12,7 @@ goal_response = RestClient.get("http://api.football-data.org/v2/competitions/202
 response = JSON.parse(goal_response)
 teams_array = response["teams"]
 
-slicedArr = teams_array.slice(5,6)
+slicedArr = teams_array.slice(20,2)
 # method is sleep to wait for x amount of seconds
 slicedArr.each do |team|
 # byebug
