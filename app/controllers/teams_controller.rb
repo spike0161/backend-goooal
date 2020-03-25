@@ -4,12 +4,12 @@ class TeamsController < ApplicationController
   def index
     teams = Team.all
     render json: teams.to_json(
-      {:except => [:created_at, :updated_at]})
+      {:except => [:created_at, :updated_at], :include => :players})
   end
 
   def show
     team = Team.find(params[:id])
-    render json: team.to_json()
+    render json: team.players
   end
 
 def favorite
