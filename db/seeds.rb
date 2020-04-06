@@ -14,7 +14,7 @@ teams_array = response["teams"]
 
 slicedArr = teams_array.slice(10, teams_array.length)
 # method is sleep to wait for x amount of seconds
-byebug
+
 slicedArr.each do |team|
 # puts "fetching team #{team['id']}"
 full_name = team['name']
