@@ -15,9 +15,12 @@ end
     render json: {user: user, favorites: user.teams}
   end
 
-  def fake_create
-    user = User.find_by(username: params['username'])
-    render json: user
+  def create
+    #find the user that logged in
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      render json: {message: "You logged in!!"}
+    end
   end
 
 end
