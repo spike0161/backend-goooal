@@ -19,7 +19,16 @@ end
     #find the user that logged in
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
-      render json: {message: "You logged in!!"}
+      render json: {
+        message: "You logged in!!",
+        successful: true,
+        data: user
+      }
+    else
+      render json: {
+        message: "Incorrect username or password",
+        successful: false
+      }
     end
   end
 
